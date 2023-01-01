@@ -41,6 +41,7 @@ model.load_weights('Trained_Model/weights.h5')
 mae = 0
 mse = 0
 count = 1
+accuracy = 0
 img_names = os.listdir(img_path)
 img_num = len(img_names)
 
@@ -62,6 +63,13 @@ for d in data:
     count=count+1
     print('predicted count:', c_pre)
     print('actual value:', c_act)
+    if(c_act>c_pre):
+        accuracy=c_pre/c_act
+        accuracy=accuracy*100
+    else:
+        accuracy=c_act/c_pre
+        accuracy=accuracy*100
+    print("accuracy = ",accuracy)
     mae += abs(c_pre - c_act)
     mse += (c_pre - c_act) * (c_pre - c_act)
 mae /= len(data)

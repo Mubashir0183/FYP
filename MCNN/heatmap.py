@@ -5,7 +5,7 @@ import os
 
 def heatmap(den, img_num, dataset, info):
     print('generating heat map for img', img_num)
-    print('shape:', den.shape)
+    #print('shape:', den.shape)
     
     if info == 'pre':
         den_resized = np.zeros((den.shape[0] * 4, den.shape[1] * 4))
