@@ -2,6 +2,7 @@ from pyheatmap.heatmap import HeatMap
 import numpy as np
 import cv2
 import os
+import shutil
 
 def heatmap(den, img_num, dataset, info):
     print('generating heat map for img', img_num)
@@ -30,6 +31,10 @@ def heatmap(den, img_num, dataset, info):
                 data.append([i + 1, j + 1])
     hm = HeatMap(data, base = img_path + 'IMG_' + str(img_num) + '.jpg')
     hm.heatmap(save_as = 'heatmap_image number_' + str(img_num) + '.png')
+
+    src_file = 'D:\FYP\MCNN\heatmap_image number_' + str(img_num) + '.png'
+    dst_file = 'D:\FYP\MCNN\Heatmaps\heatmap_image number_' + str(img_num) + '.png'
+    shutil.move(src_file,dst_file)
 
     
 
