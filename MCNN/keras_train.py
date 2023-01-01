@@ -10,13 +10,7 @@ import cv2
 import keras.backend as K
 import math
 
-if len(sys.argv) == 2:
-    dataset = sys.argv[1]
-else:
-    print('usage: python3 test.py A(or B)')
-    exit()
-print('dataset:', dataset)
-
+dataset = 'B'
 train_path = 'D:\FYP\MCNN\data/formatted_trainval/shanghaitech_part_' + dataset + '_patches_9/train/'
 train_den_path = 'D:\FYP\MCNN\data/formatted_trainval/shanghaitech_part_' + dataset + '_patches_9/train_den/'
 val_path = 'D:\FYP\MCNN\data/formatted_trainval/shanghaitech_part_' + dataset + '_patches_9/val/'
