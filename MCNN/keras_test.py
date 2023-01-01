@@ -25,10 +25,9 @@ def data_pre_test():
 
     data = []
     for i in range(1, img_num + 1):
-        if i % 50 == 0:
-            print(i, '/', img_num)
+        print(i, '/', img_num)
         name = 'IMG_' + str(i) + '.jpg'
-        #print(name + '****************************')
+        print(name + '****************************')
         img = cv2.imread(img_path + name, 0)
         img = np.array(img)
         img = (img - 127.5) / 128
@@ -48,13 +47,17 @@ model.load_weights('keras_modelB/weights.h5')
 
 mae = 0
 mse = 0
+count = 1
 for d in data:
     inputs = np.reshape(d[0], [1, 768, 1024, 1])
     outputs = model.predict(inputs)
     den = d[1]
     c_act = np.sum(den)
     c_pre = np.sum(outputs)
-    print('pre:', c_pre, 'act:', c_act)
+    print("image Number ",count)
+    count=count+1
+    print('predicted count:', c_pre)
+    print('actual value:', c_act)
     mae += abs(c_pre - c_act)
     mse += (c_pre - c_act) * (c_pre - c_act)
 mae /= len(data)
