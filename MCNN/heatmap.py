@@ -29,7 +29,7 @@ def heatmap(den, img_num, dataset, info):
             for k in range(int(den[j][i])):
                 data.append([i + 1, j + 1])
     hm = HeatMap(data, base = img_path + 'IMG_' + str(img_num) + '.jpg')
-    hm.heatmap(save_as = 'heat_' + dataset + '_' + str(img_num) + '_' + info + '_' + str(int(count)) + '.png')
+    hm.heatmap(save_as = 'heatmap_image number_' + str(img_num) + '.png')
 
     
 
